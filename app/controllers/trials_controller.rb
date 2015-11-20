@@ -7,7 +7,7 @@ class TrialsController < ApplicationController
   # GET /trials.json
 
   def index
-    @trials = Trial.all
+    @trials = current_user.trials
   end
 
   # GET /trials/1
