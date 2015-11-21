@@ -8,6 +8,7 @@
       <th>Title</th>
       <th>Notes</th>
       <th>Diff</th>
+      <th>Tags</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,6 +19,12 @@
         <td><%= trial.title %></td>
         <td><%= trial.notes %></td>
         <td><%= trial.diff %></td>
+        <td>
+        <% @Tags = trial.tags.find_all %>
+        <% loop do %>
+        <%= @Tags.next.name + ',' %>
+        <% end %>
+        </td>
         <td><%= link_to 'Show', trial %></td>
         <td><%= link_to 'Edit', edit_trial_path(trial) %></td>
         <td><%= link_to 'Destroy', trial, method: :delete, data: { confirm: 'Are you sure?' } %></td>

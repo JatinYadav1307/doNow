@@ -15,5 +15,12 @@
   <%= @trial.diff %>
 </p>
 
+<p>
+<% @Tags = @trial.tags.find_all %>
+<% loop do %>
+<%= @Tags.next.name + ',' %>
+<% end %>
+</p>
+
 <%= link_to 'Edit', edit_trial_path(@trial) %> |
 <%= link_to 'Back', trials_path %>

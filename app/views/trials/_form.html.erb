@@ -23,6 +23,14 @@
     <%= f.label :diff %><br>
     <%= f.number_field :diff %>
   </div>
+  <div class="field">
+    <div class="field_head">Tags</div>
+      <%= hidden_field_tag("trial[tag_ids][]", nil) %>
+      <% current_user.tags.order(:name).each do |tag| %>
+          <label><%= check_box_tag("trial[tag_ids][]", tag.id, @trial.tag_ids.include?(tag.id))  %> 
+          <%= tag.name %></label>
+      <% end %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
