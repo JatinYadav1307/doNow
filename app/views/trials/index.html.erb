@@ -10,6 +10,7 @@
       <th>Diff</th>
       <th>Tags</th>
       <th>Streak</th>
+      <th>Due Date</th>
       <th colspan="3">Options</th>
     </tr>
   </thead>
@@ -27,6 +28,7 @@
         <% end %>
         </td>
         <td><%= trial.streak %></td>
+        <td><%= trial.date.to_formatted_s(:rfc822)%></td>
         <td><%= link_to 'Show', trial %></td>
         <td><%= link_to 'Edit', edit_trial_path(trial) %></td>
         <td><%= link_to 'Done', trial, method: :delete%></td>

@@ -81,6 +81,6 @@ class TrialsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def trial_params
-      params.require(:trial).permit(:title, :notes, :diff, :streak, {:tag_ids => []})
+      params.require(:trial).permit(:title, :notes, :diff, :date, :streak, {:tag_ids => []})
     end
 end

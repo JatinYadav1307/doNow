@@ -16,6 +16,11 @@
 </p>
 
 <p>
+  <strong>Due Date:</strong>
+  <%= @trial.date %>
+</p>
+
+<p>
 <% @Tags = @trial.tags.find_all %>
 <% loop do %>
 <%= @Tags.next.name + ',' %>

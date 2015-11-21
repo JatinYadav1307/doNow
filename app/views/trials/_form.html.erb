@@ -24,6 +24,10 @@
     <%= f.number_field :diff %>
   </div>
   <div class="field">
+    <%= f.label :date %><br>
+    <%= f.date_select(:date, :order => [:month, :day, :year]) %>
+  </div>
+  <div class="field">
     <div class="field_head">Tags</div>
       <%= hidden_field_tag("trial[tag_ids][]", nil) %>
       <% current_user.tags.order(:name).each do |tag| %>
