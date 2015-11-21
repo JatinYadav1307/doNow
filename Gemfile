@@ -16,6 +16,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 group :development, :test do
   gem 'hirb'
   gem 'byebug'
+  gem 'quiet_assets'
   gem 'web-console', '~> 2.0'
   gem 'spring'
   gem 'sqlite3'
