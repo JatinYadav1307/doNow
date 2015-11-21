@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :tags
+  resources :tags
   resources :trials
   devise_for :users
 
