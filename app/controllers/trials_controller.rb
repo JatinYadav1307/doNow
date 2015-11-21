@@ -3,6 +3,7 @@ class TrialsController < ApplicationController
   before_action :correct_user, only: [:edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
   before_action :authenticate_user_from_token!
+
   # GET /trials
   # GET /trials.json
 
@@ -18,7 +19,6 @@ class TrialsController < ApplicationController
   # GET /trials/new
   def new
     @trial = current_user.trials.build
-    # @trial = Trial.new
   end
 
   # GET /trials/1/edit
@@ -81,6 +81,6 @@ class TrialsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def trial_params
-      params.require(:trial).permit(:title, :notes, :diff, :tag_ids => [])
+      params.require(:trial).permit(:title, :notes, :diff, {:tag_ids => []})
     end
 end
