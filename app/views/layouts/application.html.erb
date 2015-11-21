@@ -17,6 +17,8 @@
 <%= link_to("Trials", trials_path) %>
 <%= link_to("Tags", tags_path) %>
 Health : <%= User.find(current_user).health %>
+Experience : <%= User.find(current_user).exp %>
+Level : <%= User.find(current_user).level %>
 <% end %>
 <hr>
 <%= yield %>

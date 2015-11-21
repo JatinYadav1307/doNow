@@ -2,7 +2,7 @@ class TrialsController < ApplicationController
   before_action :set_trial, only: [:show, :edit, :update, :destroy]
   before_action :correct_user, only: [:edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
-
+  before_action :authenticate_user_from_token!
   # GET /trials
   # GET /trials.json
 
@@ -29,7 +29,6 @@ class TrialsController < ApplicationController
   # POST /trials.json
   def create
     @trial = current_user.trials.build(trial_params)
-    # @trial = Trial.new(trial_params)
 
     respond_to do |format|
       if @trial.save
@@ -64,6 +63,10 @@ class TrialsController < ApplicationController
       format.html { redirect_to trials_url, notice: 'Trial was successfully destroyed.' }
       format.json { head :no_content }
     end
+    @value = current_user.exp
+    @value += 20
+    current_user.exp = @value
+    current_user.save
   end
 
   private
