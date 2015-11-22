@@ -24,7 +24,7 @@
         <td>
         <% @Tags = trial.tags.find_all %>
         <% loop do %>
-        <%= @Tags.next.name + ',' %>
+        <%= '|' + @Tags.next.name + '|' %>
         <% end %>
         </td>
         <td><%= trial.streak %></td>

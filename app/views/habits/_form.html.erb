@@ -1,0 +1,41 @@
+<%= form_for(@habit) do |f| %>
+  <% if @habit.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@habit.errors.count, "error") %> prohibited this habit from being saved:</h2>
+
+      <ul>
+      <% @habit.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :notes %><br>
+    <%= f.text_area :notes %>
+  </div>
+  <div class="field">
+    <%= f.label :streak %><br>
+    <%= f.number_field :streak, disabled: true  %>
+  </div>
+  <div class="field">
+    <%= f.label :difficulty %><br>
+    <%= f.number_field :difficulty %>
+  </div>
+  <div class="field">
+    <div class="field_head">Tags</div>
+      <%= hidden_field_tag("habit[tag_ids][]", nil) %>
+      <% current_user.tags.order(:name).each do |tag| %>
+          <label><%= check_box_tag("habit[tag_ids][]", tag.id, @habit.tag_ids.include?(tag.id))  %> 
+          <%= tag.name %></label>
+      <% end %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

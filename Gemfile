@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '4.2.4'
-gem 'rails-api'
+# gem 'rails-api'
 gem 'sass-rails', '~> 5.0'
 gem 'devise'
 gem 'simple_token_authentication', '~> 1.0'

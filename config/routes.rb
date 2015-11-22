@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :todos
+  resources :habits
   resources :tags
   resources :tags
   resources :trials

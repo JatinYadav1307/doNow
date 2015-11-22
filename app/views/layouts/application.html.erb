@@ -12,7 +12,10 @@
 <%= link_to("Sign Up", new_user_registration_path) %>
 <% else %>
 <%= link_to("Logout", destroy_user_session_path , method: :delete) %>
+<%= link_to("Home", root_path) %>
 <%= link_to("Trials", trials_path) %>
+<%= link_to("Habits", habits_path) %>
+<%= link_to("To-do", todos_path) %>
 <%= link_to("Tags", tags_path) %>
 Health : <%= User.find(current_user).health %>
 Experience : <%= User.find(current_user).exp %>

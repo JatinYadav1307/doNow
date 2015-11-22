@@ -11,7 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151121181010) do
+ActiveRecord::Schema.define(version: 20151122094045) do
+
+  create_table "habits", force: :cascade do |t|
+    t.string   "title"
+    t.text     "notes"
+    t.integer  "streak"
+    t.integer  "difficulty"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+  end
+
+  add_index "habits", ["user_id"], name: "index_habits_on_user_id"
+
+  create_table "habits_tags", id: false, force: :cascade do |t|
+    t.integer "habit_id"
+    t.integer "tag_id"
+  end
+
+  add_index "habits_tags", ["habit_id"], name: "index_habits_tags_on_habit_id"
+  add_index "habits_tags", ["tag_id"], name: "index_habits_tags_on_tag_id"
 
   create_table "tags", force: :cascade do |t|
     t.string   "name"
@@ -22,6 +42,14 @@ ActiveRecord::Schema.define(version: 20151121181010) do
 
   add_index "tags", ["user_id"], name: "index_tags_on_user_id"
 
+  create_table "tags_todos", id: false, force: :cascade do |t|
+    t.integer "tag_id"
+    t.integer "todo_id"
+  end
+
+  add_index "tags_todos", ["tag_id"], name: "index_tags_todos_on_tag_id"
+  add_index "tags_todos", ["todo_id"], name: "index_tags_todos_on_todo_id"
+
   create_table "tags_trials", id: false, force: :cascade do |t|
     t.integer "tag_id"
     t.integer "trial_id"
@@ -29,6 +57,18 @@ ActiveRecord::Schema.define(version: 20151121181010) do
 
   add_index "tags_trials", ["tag_id"], name: "index_tags_trials_on_tag_id"
   add_index "tags_trials", ["trial_id"], name: "index_tags_trials_on_trial_id"
+
+  create_table "todos", force: :cascade do |t|
+    t.string   "title"
+    t.text     "notes"
+    t.date     "duedate"
+    t.integer  "difficulty"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+  end
+
+  add_index "todos", ["user_id"], name: "index_todos_on_user_id"
 
   create_table "trials", force: :cascade do |t|
     t.string   "title"
