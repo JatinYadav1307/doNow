@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151122094045) do
+ActiveRecord::Schema.define(version: 20151122163056) do
 
   create_table "habits", force: :cascade do |t|
     t.string   "title"
@@ -32,6 +32,24 @@ ActiveRecord::Schema.define(version: 20151122094045) do
 
   add_index "habits_tags", ["habit_id"], name: "index_habits_tags_on_habit_id"
   add_index "habits_tags", ["tag_id"], name: "index_habits_tags_on_tag_id"
+
+  create_table "notes", force: :cascade do |t|
+    t.string   "title"
+    t.text     "data"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+  end
+
+  add_index "notes", ["user_id"], name: "index_notes_on_user_id"
+
+  create_table "notes_tags", id: false, force: :cascade do |t|
+    t.integer "note_id"
+    t.integer "tag_id"
+  end
+
+  add_index "notes_tags", ["note_id"], name: "index_notes_tags_on_note_id"
+  add_index "notes_tags", ["tag_id"], name: "index_notes_tags_on_tag_id"
 
   create_table "tags", force: :cascade do |t|
     t.string   "name"
@@ -79,6 +97,7 @@ ActiveRecord::Schema.define(version: 20151122094045) do
     t.integer  "user_id"
     t.integer  "streak"
     t.date     "date"
+    t.integer  "number"
   end
 
   add_index "trials", ["user_id"], name: "index_trials_on_user_id"
