@@ -12,6 +12,7 @@
 <%= link_to("Sign Up", new_user_registration_path) %>
 <% else %>
 <%= link_to("Logout", destroy_user_session_path , method: :delete) %>
+<%= link_to("Edit Account", edit_user_registration_path) %>
 <%= link_to("Home", root_path) %>
 <%= link_to("Habits", habits_path) %>
 <%= link_to("Notes", notes_path) %>
@@ -29,3 +30,5 @@ Level : <%= current_user.record.level %>
 
 </body>
 </html>
+
+
