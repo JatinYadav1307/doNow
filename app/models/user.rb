@@ -6,13 +6,12 @@ class User < ActiveRecord::Base
   has_many :todos
   has_many :tags
   has_many :notes
-  after_initialize :init
+  has_one :record
+  after_create :init
 
-    def init
-      self.health  ||= 50
-      self.exp  ||= 0
-      self.level  ||= 0
-    end
+  def init
+    Record.create(:health => 50, :experience => 0, :level => 0, :user_id => self.id)
+  end
   acts_as_token_authenticatable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable

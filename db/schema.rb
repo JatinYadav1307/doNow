@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151122163056) do
+ActiveRecord::Schema.define(version: 20151122180713) do
 
   create_table "habits", force: :cascade do |t|
     t.string   "title"
@@ -50,6 +50,17 @@ ActiveRecord::Schema.define(version: 20151122163056) do
 
   add_index "notes_tags", ["note_id"], name: "index_notes_tags_on_note_id"
   add_index "notes_tags", ["tag_id"], name: "index_notes_tags_on_tag_id"
+
+  create_table "records", force: :cascade do |t|
+    t.integer  "health"
+    t.integer  "experience"
+    t.integer  "level"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+  end
+
+  add_index "records", ["user_id"], name: "index_records_on_user_id"
 
   create_table "tags", force: :cascade do |t|
     t.string   "name"
@@ -116,9 +127,6 @@ ActiveRecord::Schema.define(version: 20151122163056) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "authentication_token"
-    t.integer  "health"
-    t.integer  "exp"
-    t.integer  "level"
   end
 
   add_index "users", ["authentication_token"], name: "index_users_on_authentication_token"

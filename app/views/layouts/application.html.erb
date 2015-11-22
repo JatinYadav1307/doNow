@@ -18,9 +18,9 @@
 <%= link_to("To-do", todos_path) %>
 <%= link_to("Trials", trials_path) %>
 <%= link_to("Tags", tags_path) %>
-Health : <%= User.find(current_user).health %>
-Experience : <%= User.find(current_user).exp %>
-Level : <%= User.find(current_user).level %>
+Health : <%= current_user.record.health %>
+Experience : <%= current_user.record.experience %>
+Level : <%= current_user.record.level %>
 <% end %>
 <hr>
 <p class="notice"><%= notice %></p>
