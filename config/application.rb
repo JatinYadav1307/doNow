@@ -13,7 +13,7 @@ module DoNow
     config.action_dispatch.default_headers = {
     'Access-Control-Allow-Origin' => '*',
     'Access-Control-Request-Method' => %w{GET POST PUT DELETE OPTIONS}.join(","),
-    'Access-Control-Allow-Headers:' => 'Origin, X-Requested-With, Content-Type, Accept'
+    'Access-Control-Allow-Headers:' => '*'
     }
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
