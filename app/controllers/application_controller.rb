@@ -20,7 +20,7 @@ def cors_preflight_check
   if request.method == :options
     headers['Access-Control-Allow-Origin'] = '*'
     headers['Access-Control-Allow-Methods'] = 'POST, GET, OPTIONS, PUT, DELETE'
-    headers['Access-Control-Allow-Headers'] = '*'
+    headers['Access-Control-Allow-Headers'] = 'Content-Type, X-User-Token, X-User-Email'
     headers['Access-Control-Max-Age'] = '1728000'
     render :text => '', :content_type => 'text/plain'
   end
