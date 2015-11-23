@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  match '(:anything)' => 'application#nothing', via: [:options]
   resources :notes
   resources :todos
   resources :habits
