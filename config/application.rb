@@ -10,6 +10,10 @@ module DoNow
   class Application < Rails::Application
     config.api_only = false
     config.assets.initialize_on_precompile = false
+    config.action_dispatch.default_headers = {
+    'Access-Control-Allow-Origin' => '*',
+    'Access-Control-Request-Method' => %w{GET POST PUT DELETE}.join(",")
+    }
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
