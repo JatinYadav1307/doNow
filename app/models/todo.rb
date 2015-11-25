@@ -7,5 +7,5 @@ class Todo < ActiveRecord::Base
  		self.difficulty ||= 0
     end
     validates :title, presence: true
-	validates :difficulty, numericality: {greater_than: 0,less_than_or_equal_to: 4,:allow_blank => true}
+	validates :difficulty, numericality: {greater_than_equal_to: 0,less_than_or_equal_to: 4,:allow_blank => true}
 end
