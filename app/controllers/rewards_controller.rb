@@ -27,7 +27,7 @@ class RewardsController < ApplicationController
   # POST /rewards
   # POST /rewards.json
   def create
-    @reward = current_user.habits.build(reward_params)
+    @reward = current_user.rewards.build(reward_params)
 
     respond_to do |format|
       if @reward.save
