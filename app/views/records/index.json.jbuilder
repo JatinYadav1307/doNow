@@ -1,1 +1,1 @@
-json.extract! @record, :health, :experience, :level
+json.extract! @record, :health, :experience, :level, :silver, :gold, :diamonds
