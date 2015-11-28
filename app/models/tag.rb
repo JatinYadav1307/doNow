@@ -3,4 +3,5 @@ class Tag < ActiveRecord::Base
 	has_and_belongs_to_many :trials
 	has_and_belongs_to_many :habits
 	has_and_belongs_to_many :todos
+	has_and_belongs_to_many :dailies 
 end

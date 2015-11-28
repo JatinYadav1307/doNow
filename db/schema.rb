@@ -11,7 +11,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151128170149) do
+ActiveRecord::Schema.define(version: 20151128173210) do
+
+  create_table "dailies", force: :cascade do |t|
+    t.string   "title"
+    t.text     "notes"
+    t.integer  "difficulty"
+    t.date     "startDate"
+    t.integer  "streak"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.integer  "priority"
+  end
+
+  add_index "dailies", ["user_id"], name: "index_dailies_on_user_id"
+
+  create_table "dailies_tags", id: false, force: :cascade do |t|
+    t.integer "daily_id"
+    t.integer "tag_id"
+  end
+
+  add_index "dailies_tags", ["daily_id"], name: "index_dailies_tags_on_daily_id"
+  add_index "dailies_tags", ["tag_id"], name: "index_dailies_tags_on_tag_id"
 
   create_table "habits", force: :cascade do |t|
     t.string   "title"
