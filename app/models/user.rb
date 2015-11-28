@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   has_many :todos
   has_many :tags
   has_many :notes
+  has_many :rewards
   has_many :dailies
   has_one :record
   after_create :init
