@@ -4,9 +4,16 @@ class Daily < ActiveRecord::Base
 	after_initialize :init
 	
     def init
- 		self.streak ||= 0
+ 		self.streak 	||= 0
  		self.difficulty ||= 0
- 		self.priority ||=0
+ 		self.priority 	||= 0
+ 		self.monday		||= false
+ 		self.tuesday 	||= false
+ 		self.wednesday  ||= false
+ 		self.thursday   ||= false
+ 		self.friday 	||= false
+ 		self.saturday 	||= false
+ 		self.sunday 	||= false
     end
     validates :title, presence: true
 	validates :difficulty, numericality: {greater_than_or_equal_to: 0,less_than_or_equal_to: 4,:allow_blank => true}
