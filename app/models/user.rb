@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   before_destroy :removeRecord
 
   def init
-    Record.create(:health => 50, :experience => 0, :level => 0, :user_id => self.id, :gold => 0, :silver => 0, :diamonds => 0)
+    Record.create(:health => 100, :experience => 0, :level => 0, :user_id => self.id, :gold => 0, :silver => 0, :diamonds => 0)
   end
 
   def removeRecord
