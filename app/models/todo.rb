@@ -4,8 +4,9 @@ class Todo < ActiveRecord::Base
 	after_initialize :init
 
     def init
- 		self.difficulty ||= 0
- 		self.priority ||=0
+ 		self.difficulty  ||= 0
+ 		self.priority    ||= 0
+ 		self.done	   	 ||= 0
     end
     validates :title, presence: true
 	validates :difficulty, numericality: {greater_than_equal_to: 0,less_than_or_equal_to: 4,:allow_blank => true}

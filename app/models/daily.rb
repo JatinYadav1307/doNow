@@ -14,6 +14,7 @@ class Daily < ActiveRecord::Base
  		self.friday 	||= false
  		self.saturday 	||= false
  		self.sunday 	||= false
+ 		self.done 	 	||= 0
     end
     validates :title, presence: true
 	validates :difficulty, numericality: {greater_than_or_equal_to: 0,less_than_or_equal_to: 4,:allow_blank => true}

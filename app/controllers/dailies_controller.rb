@@ -76,6 +76,6 @@ class DailiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def daily_params
-      params.require(:daily).permit(:title, :notes, :difficulty, :startDate, :streak, :priority, :monday, :tuesday, :wednesday, :thursday, :friday, :saturday, :sunday, {:tag_ids => []})
+      params.require(:daily).permit(:title, :notes, :difficulty, :startDate, :streak, :done, :priority, :monday, :tuesday, :wednesday, :thursday, :friday, :saturday, :sunday, {:tag_ids => []})
     end
 end

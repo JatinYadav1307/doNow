@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151128175145) do
+ActiveRecord::Schema.define(version: 20151129112202) do
 
   create_table "dailies", force: :cascade do |t|
     t.string   "title"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20151128175145) do
     t.boolean  "friday"
     t.boolean  "saturday"
     t.boolean  "sunday"
+    t.boolean  "done"
   end
 
   add_index "dailies", ["user_id"], name: "index_dailies_on_user_id"
@@ -141,6 +142,7 @@ ActiveRecord::Schema.define(version: 20151128175145) do
     t.datetime "updated_at", null: false
     t.integer  "user_id"
     t.integer  "priority"
+    t.boolean  "done"
   end
 
   add_index "todos", ["user_id"], name: "index_todos_on_user_id"

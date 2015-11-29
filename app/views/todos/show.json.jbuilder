@@ -1,1 +1,1 @@
-json.extract! @todo, :id, :title, :notes, :duedate, :difficulty, :priority
+json.extract! @todo, :id, :title, :notes, :duedate, :difficulty, :priority, :done 
