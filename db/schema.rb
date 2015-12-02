@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151129112202) do
+ActiveRecord::Schema.define(version: 20151202105523) do
 
   create_table "dailies", force: :cascade do |t|
     t.string   "title"
@@ -63,6 +63,13 @@ ActiveRecord::Schema.define(version: 20151129112202) do
 
   add_index "habits_tags", ["habit_id"], name: "index_habits_tags_on_habit_id"
   add_index "habits_tags", ["tag_id"], name: "index_habits_tags_on_tag_id"
+
+  create_table "logins", force: :cascade do |t|
+    t.string   "email"
+    t.string   "token"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "notes", force: :cascade do |t|
     t.string   "title"
