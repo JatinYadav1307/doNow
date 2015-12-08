@@ -94,6 +94,7 @@ GEM
     rack-cors (0.4.0)
     rack-test (0.6.3)
       rack (>= 1.0)
+    railroady (1.4.1)
     rails (4.2.4)
       actionmailer (= 4.2.4)
       actionpack (= 4.2.4)
@@ -177,6 +178,7 @@ DEPENDENCIES
   pg
   quiet_assets
   rack-cors
+  railroady
   rails (= 4.2.4)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
